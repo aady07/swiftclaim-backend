@@ -1,4 +1,4 @@
-package com.bezkoder.spring.thymeleaf.image.upload.service;
+package com.aady.swiftclaimai.service;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

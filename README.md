@@ -1,82 +1,122 @@
-# Spring Boot Image Upload example with Thymeleaf
+SwiftClaimAI Backend
+====================
 
-Build Spring Boot Upload Image and Display example with Thymeleaf - Bootstrap, Form, List of Images - Thymeleaf Image Upload/Download example.
+Overview
+--------
 
-![spring-boot-image-upload-example](spring-boot-image-upload-example.png)
+SwiftClaimAI Backend is a Spring Boot application that provides an API for processing insurance claim images. The application receives image uploads, encodes them to Base64, and forwards them to an external claim processing service.
 
-![spring-boot-upload-image-and-display](spring-boot-upload-image-and-display.png)
+Technology Stack
+----------------
 
-For more detail, please visit:
-> [Spring Boot Image Upload example with Thymeleaf](https://www.bezkoder.com/spring-boot-image-upload-thymeleaf/)
+*   Java 17
+    
+*   Spring Boot 2.7.6
+    
+*   Maven
+    
 
-> [Spring Boot Delete File example with Thymeleaf](https://www.bezkoder.com/spring-boot-delete-file-thymeleaf/)
+API Endpoints
+-------------
 
-More Practice:
-> [Spring Boot Thymeleaf Multiple Files upload](https://www.bezkoder.com/thymeleaf-multiple-file-upload/)
+### Image Upload API
 
-> [Spring Boot Thymeleaf CRUD example](https://www.bezkoder.com/spring-boot-thymeleaf-example/)
+*   **URL**: /api/upload
+    
+*   **Method**: POST
+    
+*   **Content-Type**: multipart/form-data
+    
+*   **Request Parameter**:
+    
+    *   file: The image file to be processed
+        
 
-> [Spring Boot Thymeleaf Pagination and Sorting example](https://www.bezkoder.com/thymeleaf-pagination-and-sorting-example/)
+#### Request Format
 
-> [Spring Boot Pagination & Filter example | Spring JPA, Pageable](https://www.bezkoder.com/spring-boot-pagination-filter-jpa-pageable/)
+The API accepts image files through a multipart form data request.
 
-> [Spring Data JPA Sort/Order by multiple Columns | Spring Boot](https://www.bezkoder.com/spring-data-sort-multiple-columns/)
+#### Response
 
-> [Spring Boot Repository Unit Test with @DataJpaTest](https://www.bezkoder.com/spring-boot-unit-test-jpa-repo-datajpatest/)
+The API forwards the response received from the external claim processing service.
 
-> [Deploy Spring Boot App on AWS – Elastic Beanstalk](https://www.bezkoder.com/deploy-spring-boot-aws-eb/)
+#### Error Handling
 
-Exception Handling:
-> [Spring Boot @ControllerAdvice & @ExceptionHandler example](https://www.bezkoder.com/spring-boot-controlleradvice-exceptionhandler/)
+In case of errors, the API returns an appropriate HTTP status code along with an error message.
 
-> [@RestControllerAdvice example in Spring Boot](https://www.bezkoder.com/spring-boot-restcontrolleradvice/)
+External API Integration
+------------------------
 
-Rest API:
-> [Spring Boot + MySQL: CRUD Rest API example](https://www.bezkoder.com/spring-boot-jpa-crud-rest-api/)
+The application communicates with an external API endpoint at https://claim.aadyserver.tech/api by sending a JSON payload with the following structure:
 
-> [Spring Boot + PostgreSQL: CRUD Rest API example](https://www.bezkoder.com/spring-boot-postgresql-example/)
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   jsonCopy{    "name": "filename_without_extension",    "file_name": "original_filename.extension",    "file_format": "extension",    "file_data": "base64_encoded_content"  }   `
 
-> [Spring Boot + SQL Server: CRUD Rest API example](https://www.bezkoder.com/spring-boot-sql-server/)
+Features
+--------
 
-> [Spring Boot + H2: CRUD Rest API example](https://www.bezkoder.com/spring-boot-jpa-h2-example/)
+*   Cross-origin resource sharing (CORS) enabled
+    
+*   Image to Base64 conversion
+    
+*   Request and response logging to separate files
+    
+*   Error handling and reporting
+    
 
-> [Spring Boot + MongoDB: CRUD Rest API example](https://www.bezkoder.com/spring-boot-mongodb-crud/)
+Logging
+-------
 
-> [Spring Boot + Oracle: CRUD Rest API example](https://www.bezkoder.com/spring-boot-hibernate-oracle/)
+The application logs both requests and responses to:
 
-> [Spring Boot + Cassandra: CRUD Rest API example](https://www.bezkoder.com/spring-boot-cassandra-crud/)
+*   api\_request.log: Contains details of requests sent to the external API
+    
+*   api\_response.log: Contains responses received from the external API
+    
 
-Security:
-> [Spring Boot + Spring Security JWT Authentication & Authorization](https://www.bezkoder.com/spring-boot-jwt-authentication/)
+Configuration
+-------------
 
-Fullstack:
-> [Vue + Spring Boot example](https://www.bezkoder.com/spring-boot-vue-js-crud-example/)
+The application uses default Spring Boot configuration. Key properties can be set in the application.properties file.
 
-> [Angular 8 + Spring Boot example](https://www.bezkoder.com/angular-spring-boot-crud/)
+Building the Application
+------------------------
 
-> [Angular 10 + Spring Boot example](https://www.bezkoder.com/angular-10-spring-boot-crud/)
+To build the application:
 
-> [Angular 11 + Spring Boot example](https://www.bezkoder.com/angular-11-spring-boot-crud/)
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopymvn clean install   `
 
-> [Angular 12 + Spring Boot example](https://www.bezkoder.com/angular-12-spring-boot-crud/)
+Running the Application
+-----------------------
 
-> [Angular 13 + Spring Boot example](https://www.bezkoder.com/spring-boot-angular-13-crud/)
+To run the application:
 
-> [Angular 14 + Spring Boot example](https://www.bezkoder.com/spring-boot-angular-14-crud/)
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopymvn spring-boot:run   `
 
-> [React + Spring Boot + MySQL example](https://www.bezkoder.com/react-spring-boot-crud/)
+Or after building:
 
-> [React + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-react-postgresql/)
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopyjava -jar target/spring-boot-upload-image-0.0.1-SNAPSHOT.jar   `
 
-Run both Back-end & Front-end in one place:
-> [Integrate Angular with Spring Boot Rest API](https://www.bezkoder.com/integrate-angular-spring-boot/)
+Dependencies
+------------
 
-> [Integrate React.js with Spring Boot Rest API](https://www.bezkoder.com/integrate-reactjs-spring-boot/)
+*   spring-boot-starter-web: For REST controller implementation
+    
+*   spring-boot-devtools: For development utilities
+    
+*   spring-boot-starter-test: For testing
+    
 
-> [Integrate Vue.js with Spring Boot Rest API](https://www.bezkoder.com/integrate-vue-spring-boot/)
+Project Structure
+-----------------
 
-## Run Spring Boot application
-```
-mvn spring-boot:run
-```
+*   ImageController.java: REST controller handling image upload and processing
+    
+*   FilesStorageService: Service for file storage (referenced in the controller)
+    
 
+Error Handling
+--------------
+
+The application provides detailed error messages when image processing fails, including the original filename and the specific error encountered.
+
+Version 1 of 2

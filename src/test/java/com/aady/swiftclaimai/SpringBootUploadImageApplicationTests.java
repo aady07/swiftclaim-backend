@@ -1,4 +1,4 @@
-package com.bezkoder.spring.thymeleaf.image.upload;
+package com.aady.swiftclaimai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

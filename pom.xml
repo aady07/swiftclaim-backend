@@ -9,13 +9,13 @@
 		<version>2.7.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.bezkoder</groupId>
+	<groupId>com.aady</groupId>
 	<artifactId>spring-boot-upload-image</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-upload-image</name>
-	<description>Spring Boot upload Image API</description>
+	<name>SwiftClaimAI Backend</name>
+	<description>Backend API for SwiftClaimAI</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,6 +27,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

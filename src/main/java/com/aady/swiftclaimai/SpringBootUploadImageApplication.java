@@ -1,4 +1,4 @@
-package com.bezkoder.spring.thymeleaf.image.upload;
+package com.aady.swiftclaimai;
 
 import javax.annotation.Resource;
 
@@ -6,7 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.bezkoder.spring.thymeleaf.image.upload.service.FilesStorageService;
+import com.aady.swiftclaimai.service.FilesStorageService;
 
 @SpringBootApplication
 public class SpringBootUploadImageApplication implements CommandLineRunner {

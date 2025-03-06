@@ -1,4 +1,4 @@
-package com.bezkoder.spring.thymeleaf.image.upload.model;
+package com.aady.swiftclaimai.model;
 
 public class ImageInfo {
   

@@ -1,4 +1,4 @@
-package com.bezkoder.spring.thymeleaf.image.upload.controller;
+package com.aady.swiftclaimai.controller;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.bezkoder.spring.thymeleaf.image.upload.service.FilesStorageService;
+import com.aady.swiftclaimai.service.FilesStorageService;
 
 @RestController
 @CrossOrigin("*")
