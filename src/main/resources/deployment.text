@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Navigate to the project directory
+cd /home/ec2-user/swiftclaim-backend || exit
+
+# Ensure we're on the dev branch and pull the latest changes
+git checkout dev
+git pull origin dev
+
+# Build the project
+mvn clean package -DskipTests
+
+# Find the newly built JAR file
+JAR_FILE=$(ls target/*.jar | head -n 1)
+
+# If no JAR file is found, exit with an error
+if [ -z "$JAR_FILE" ]; then
+  echo "Error: No JAR file found in target/ directory."
+  exit 1
+fi
+
+# Stop any running Spring Boot application
+pkill -f "java -jar"
+
+# Wait for the process to stop
+sleep 5
+
+# Run the application in the background
+nohup java -jar "$JAR_FILE" > app.log 2>&1 &
