@@ -25,5 +25,5 @@ pkill -f "java -jar"
 # Wait for the process to stop
 sleep 5
 
-# Run the application in the background
+# Run the application in the backgroundasdfcsdfdsfdsfdsf
 nohup java -jar "$JAR_FILE" > app.log 2>&1 &
