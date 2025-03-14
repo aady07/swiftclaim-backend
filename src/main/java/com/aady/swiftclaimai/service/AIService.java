@@ -25,10 +25,10 @@ public class AIService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Map<String, String>> httpRequest = new HttpEntity<>(request, headers);
 
-        return restTemplate.postForObject("https://postman-echo.com/post", httpRequest, String.class);
+        return restTemplate.postForObject("https://ai.aadyserver.tech/predict", httpRequest, String.class);
     }
 
-    public Map<String, String> processImageFile(MultipartFile file) throws IOException {
+    public Map<String, String> processImageFile(MultipartFile file, String make, String model) throws IOException {
         String originalFilename = file.getOriginalFilename();
         String fileFormat = getFileFormat(originalFilename);
 
@@ -43,6 +43,9 @@ public class AIService {
         jsonRequest.put("file_name", originalFilename);
         jsonRequest.put("file_format", fileFormat);
         jsonRequest.put("file_data", base64Image);
+        
+        jsonRequest.put("make", make);
+        jsonRequest.put("model", model);
 
         return jsonRequest;
     }

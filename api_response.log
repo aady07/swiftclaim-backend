@@ -1,0 +1,4 @@
+Mar 14, 2025 8:51:48 PM com.aady.swiftclaimai.controller.ImageController uploadImage
+INFO: Request to external service: {name=a, file_name=a.jpg, file_format=jpg, file_data=[BASE64_DATA]}
+Mar 14, 2025 8:52:19 PM com.aady.swiftclaimai.controller.ImageController uploadImage
+INFO: Request to external service: {name=a, file_name=a.jpg, file_format=jpg, file_data=[BASE64_DATA]}

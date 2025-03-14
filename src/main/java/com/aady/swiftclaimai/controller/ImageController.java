@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,14 +29,14 @@ public class ImageController {
   @PostMapping("/upload")
 public ResponseEntity<String> uploadImage(
     @RequestParam("file") MultipartFile file,
-    @RequestParam(value = "apiKey", required = false) String apiKey) {
+    @RequestParam(value = "carMake", required = true) String make,
+    @RequestParam(value = "carModel", required = true) String model)
+     {
   
   try {
 
-    System.out.println("API Key: " + (apiKey != null ? apiKey : "Not provided"));
-
-    // Process image file using AI service
-    Map<String, String> jsonRequest = AIService.processImageFile(file);
+    // Process image file using AI service and pass make and model
+    Map<String, String> jsonRequest = AIService.processImageFile(file, make, model);
 
     // Call external API with processed data
     String response = AIService.callExternalApi(jsonRequest);
@@ -50,5 +51,17 @@ public ResponseEntity<String> uploadImage(
     System.out.println(errorMessage);
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
   }
+}
+
+@RestController
+@RequestMapping("/test")
+public class TestController {
+    
+    @PostMapping("/echo")
+    public ResponseEntity<Map<String, Object>> echo(@RequestBody Map<String, Object> request) {
+        // You can log the request here
+        System.out.println("Received request: " + request);
+        return ResponseEntity.ok(request);
+    }
 }
 }
